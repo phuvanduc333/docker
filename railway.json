@@ -1,0 +1,8 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "/usr/sbin/sshd -D"
+  }
+}

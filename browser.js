@@ -149,23 +149,24 @@ async function bypassCloudflareChallenge(browserProxy, page) {
 // Khởi chạy browser
 async function openBrowser(targetURL, browserProxy) {
   const options = {
-    headless: "new",
-    ignoreHTTPSErrors: true,
-    args: [
-      `--proxy-server=http://${browserProxy}`,
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--ignore-certificate-errors",
-      "--disable-dev-shm-usage",
-      "--disable-gpu",
-      "--disable-infobars",
-      "--window-size=1366,768",
-      "--disable-features=IsolateOrigins,site-per-process",
-      "--enable-webgl",
-      "--enable-webrtc",
-      `--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36`
-    ],
-  };
+  headless: "new",
+  executablePath: "/usr/bin/chromium-browser", // Đường dẫn thực thi Chromium
+  ignoreHTTPSErrors: true,
+  args: [
+    `--proxy-server=http://${browserProxy}`,
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+    "--ignore-certificate-errors",
+    "--disable-dev-shm-usage",
+    "--disable-gpu",
+    "--disable-infobars",
+    "--window-size=1366,768",
+    "--disable-features=IsolateOrigins,site-per-process",
+    "--enable-webgl",
+    "--enable-webrtc",
+    `--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36`
+  ],
+};
 
   let browser;
   try {
